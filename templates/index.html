@@ -39,28 +39,19 @@
                         </div>
                         <div>
                             <h3>Mars Facts</h3>
-                            {{mars.Facts}}
+                            {{mars.Facts | safe}}
                         </div>
                         </div>
                     </div>
             </div>
             <div class:"row">
                 <h3 align="center">Mars Hemispheres</h3>
-                <div class="col-xs-6">
-                    <img src={{mars.Hemispheres.img_url}} alt=""><h4 align="center">{{mars.Hemispheres.titles}}</h4>
-                    <img src="#" alt=""><h4 align="center">Hemisphere</h4>
-                </div>
-                <div>
-                    <img src="#" alt=""><h4 align="center">Hemisphere</h4>
-                    <img src="#" alt=""><h4 align="center">Hemisphere</h4>
-                    
                     {% for hemisphere in mars.Hemispheres %}
-                    <!-- {% for image in hemisphere.img_url%} -->
-                    <div class=flash>{{hemisphere}}</div>
-                    <!-- {% endfor %} -->
+                    <h3>{{hemisphere.title}}</h3>    
+                    <img class="col-xs-6" src={{hemisphere.img_url}} alt="">
+                        
                     {% endfor %}
                     {% block body %}{% endblock %}
-                </div>
             </div>
         </div>  
     </body>
