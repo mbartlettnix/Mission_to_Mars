@@ -12,7 +12,7 @@
     <body>
         <div class="jumbotron text-center">
             <h1>Mission to Mars</h1>
-            <a href="#" class="btn btn-primary" role="button">Scrape Mars Data</a>
+            <a href="./scrape" class="btn btn-primary" role="button">Scrape Mars Data</a>
         </div>
         <div class="container">
             <div class:"row">
@@ -47,9 +47,10 @@
             <div class:"row">
                 <h3 align="center">Mars Hemispheres</h3>
                     {% for hemisphere in mars.Hemispheres %}
-                    <h3>{{hemisphere.title}}</h3>    
-                    <img class="col-xs-6" src={{hemisphere.img_url}} alt="">
-                        
+                    <figure class="col-xs-6">
+                        <img  class ="figure-image col-xs-12" src={{hemisphere.img_url}} alt="">
+                        <figcaption><h3 align="center">{{hemisphere.title}}</h3> </figcaption>  
+                    </figure>
                     {% endfor %}
                     {% block body %}{% endblock %}
             </div>
