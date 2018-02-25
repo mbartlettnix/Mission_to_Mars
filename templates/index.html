@@ -16,44 +16,30 @@
         </div>
         <div class="container">
             <div class:"row">
-                <h3>Latest Mars News</h3>
-                <p>blah blah blah blah blah blah blah blah blah blah blah</p>
+                <h3>{{mars.News_Header}}</h3>
+                <p>{{mars.News_Article}}</p>
             </div>
             <div class="row">
                     <div class="col-sm-8">
                         <div class="panel panel-default">
-                            <div class="panel-body"><h3>Featured Mars Image</h3></div>
+                            <div class="panel-body">
+                                <h3>Featured Mars Image</h3>
+                                <img class="col-xs-12"src={{mars.JPL_Image}} alt="JPL_Image">
+                            </div>
                         </div>
                     </div>
                     <div class="col-sm-4">
                         <div class="col-sm-12">
                         <div class="panel panel-default">
-                                <div class="panel-body">Current Weather on Mars</div>
+                                <div class="panel-body">
+                                    <h5>Current Weather on Mars</h5>
+                                    <p>{{mars.Weather}}</p>
+                                </div>
+
                         </div>
                         <div>
                             <h3>Mars Facts</h3>
-                            <table class="table table-bordered">
-                                    <thead>
-                                        <tr>
-                                        <th>Fact</th>
-                                        <th>Value</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                        <td><strong>John</strong></td>
-                                        <td>Doe</td>
-                                        </tr>
-                                        <tr>
-                                        <td><strong>John</strong></td>
-                                        <td>Moe</td>
-                                        </tr>
-                                        <tr>
-                                        <td><strong>John</strong></td>
-                                        <td>Dooley</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
+                            {{mars.Facts}}
                         </div>
                         </div>
                     </div>
@@ -61,12 +47,19 @@
             <div class:"row">
                 <h3 align="center">Mars Hemispheres</h3>
                 <div class="col-xs-6">
-                    <img src="#" alt=""><h4 align="center">Hemisphere</h4>
+                    <img src={{mars.Hemispheres.img_url}} alt=""><h4 align="center">{{mars.Hemispheres.titles}}</h4>
                     <img src="#" alt=""><h4 align="center">Hemisphere</h4>
                 </div>
                 <div>
                     <img src="#" alt=""><h4 align="center">Hemisphere</h4>
                     <img src="#" alt=""><h4 align="center">Hemisphere</h4>
+                    
+                    {% for hemisphere in mars.Hemispheres %}
+                    <!-- {% for image in hemisphere.img_url%} -->
+                    <div class=flash>{{hemisphere}}</div>
+                    <!-- {% endfor %} -->
+                    {% endfor %}
+                    {% block body %}{% endblock %}
                 </div>
             </div>
         </div>  
